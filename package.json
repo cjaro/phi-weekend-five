@@ -1,0 +1,21 @@
+{
+  "name": "weekend5-revisit-wk1",
+  "version": "1.0.0",
+  "description": "For your weekend challenge, you will need to create an application that records employee data, including their salary. We also want to add the salaries up so we know how much we’re spending each month. Start with the repo provided.",
+  "main": "client.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/app.js"
+
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.6.3",
+    "angular-route": "^1.6.3",
+    "body-parser": "^1.17.1",
+    "bootstrap": "^3.3.7",
+    "express": "^4.15.2",
+    "pg": "^6.1.4"
+  }
+}
