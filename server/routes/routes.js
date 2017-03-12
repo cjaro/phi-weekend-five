@@ -10,6 +10,7 @@ var config = {
 };
 
 var pool = new pg.Pool(config);
+
 //gonna get all the emps
 router.get('/', function(req, res) {
   console.log('hit my get all employees route');
@@ -18,7 +19,6 @@ router.get('/', function(req, res) {
       console.log(err);
       res.sendStatus(500);
     }else{
-      // SELECT * FROM employees;
       client.query('SELECT * FROM employees ORDER BY status, id;', function(err, result) {
         done();
         if(err){
@@ -32,12 +32,11 @@ router.get('/', function(req, res) {
     }
   });
 });
+
 // add new employee in the db
 router.post('/', function(req, res) {
-
   var taskObject = req.body;
 // db query
-// INSERT INTO task (name) VALUES ('test');
   pool.connect(function(err, client, done) {
     if(err){
       console.log(err);
@@ -56,7 +55,7 @@ router.post('/', function(req, res) {
     }
   });
 });
-//now to delete an emp
+// delete employee
 router.delete('/:id', function(req, res) {
   var empDeleteID = req.params.id;
   console.log('delete route');
@@ -80,49 +79,51 @@ router.delete('/:id', function(req, res) {
     }
   });
 });
-//distinguish active vs inactive
-router.put('/active/:id', function(req, res) {
-  var empActiveID = req.params.id;
-
-  pool.connect(function(err, client, done) {
-    if(err){
-      console.log(err);
-      res.sendStatus(500);
-    }else{
-      client.query('UPDATE employees SET status=TRUE WHERE ID=$1;',
-        [empActiveID], function(err, result) {
-          done();
-          if(err){
-            console.log(err);
-            res.sendStatus(500);
-          }else{
-            res.sendStatus(200);
-          }
-      });
-    }
-  });
-});
-//inactive??? look at millie's walkthrough for this part
-router.put('/inactive/:id', function(req, res) {
-  var empInactiveID = req.params.id;
-
-  pool.connect(function(err, client, done) {
-    if(err){
-      console.log(err);
-      res.sendStatus(500);
-    }else{
-      client.query('UPDATE task SET status=FALSE WHERE ID=$1;',
-        [empInactiveID], function(err, result) {
-          done();
-          if(err){
-            console.log(err);
-            res.sendStatus(500); // the world exploded
-          }else{
-            res.sendStatus(200);
-          }
-      });
-    }
-  });
-});
+// //distinguish active vs inactive
+//millie's walkthrough did this with the tasks/chores
+//
+// router.put('/active/:id', function(req, res) {
+//   var empActiveID = req.params.id;
+//
+//   pool.connect(function(err, client, done) {
+//     if(err){
+//       console.log(err);
+//       res.sendStatus(500);
+//     }else{
+//       client.query('UPDATE employees SET status=TRUE WHERE ID=$1;',
+//         [empActiveID], function(err, result) {
+//           done();
+//           if(err){
+//             console.log(err);
+//             res.sendStatus(500);
+//           }else{
+//             res.sendStatus(200);
+//           }
+//       });
+//     }
+//   });
+// });
+// //inactive??? look at millie's walkthrough for this part
+// router.put('/inactive/:id', function(req, res) {
+//   var empInactiveID = req.params.id;
+//
+//   pool.connect(function(err, client, done) {
+//     if(err){
+//       console.log(err);
+//       res.sendStatus(500);
+//     }else{
+//       client.query('UPDATE task SET status=FALSE WHERE ID=$1;',
+//         [empInactiveID], function(err, result) {
+//           done();
+//           if(err){
+//             console.log(err);
+//             res.sendStatus(500); // the world exploded
+//           }else{
+//             res.sendStatus(200);
+//           }
+//       });
+//     }
+//   });
+// });
 
 module.exports = router;

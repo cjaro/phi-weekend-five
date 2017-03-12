@@ -1,4 +1,4 @@
-myApp.controller('EmpController', ['EmpFactory', function(EmpFactory){ //can now take http out of depenc\since I moved it to the factory
+empApp.controller('EmpController', ['EmpFactory', function(EmpFactory){ //can now take http out of depenc\since I moved it to the factory
   console.log('EmpController was loaded');
   var self = this;
   self.newEmp = {};
@@ -15,15 +15,15 @@ myApp.controller('EmpController', ['EmpFactory', function(EmpFactory){ //can now
     EmpFactory.deleteEmp(empID);
   }
 
-// "the glue between the controller and view"
-  self.completeEmp = function(empID) {
-    EmpFactory.completeEmp(empID);
-  }
-
-// uncomplete
-  self.uncompleteEmp = function(empID) {
-    EmpFactory.uncompleteEmp(empID);
-  }
+// // "the glue between the controller and view"
+//   self.completeEmp = function(empID) {
+//     EmpFactory.completeEmp(empID);
+//   }
+//
+// // uncomplete
+//   self.uncompleteEmp = function(empID) {
+//     EmpFactory.uncompleteEmp(empID);
+//   }
 
 
 }]);

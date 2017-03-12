@@ -1,4 +1,4 @@
-myApp.factory('EmpFactory', [function() {
+empApp.factory('EmpFactory', [function() {
 
   var empFactory = { list: [] };
 
@@ -8,11 +8,11 @@ myApp.factory('EmpFactory', [function() {
   function getEmp() {
     $http({
       method: 'GET',
-      url: '/emp'
+      url: '/employees'
     }).then(function(response) {
       console.log('response from factory: ', response);
       console.log('response.data from factory: ', response.data);
-      factoryEmp.list = response.data;
+      empFactory.list = response.data;
     });
   }
 
@@ -20,7 +20,7 @@ myApp.factory('EmpFactory', [function() {
   function addEmp(data) {
     $http({
       method: 'POST',
-      url: '/emp',
+      url: '/employees',
       data: data
     }).then(function(response){
       console.log(response);
@@ -32,37 +32,37 @@ myApp.factory('EmpFactory', [function() {
   function deleteEmp(empID) {
     $http({
       method: 'DELETE',
-      url: '/emp/' + empID
+      url: '/employees/' + empID
     }).then(function(response) {
       getEmp();
     });
   }
 
-  //active emp
-  function activeEmp(empID) {
-    $http({
-      method: 'PUT',
-      url: '/emp/active/' + empID
-    }).then(function(response) {
-      getEmp();
-    });
-  }
-
-  //inactive emp
-  function inactiveEmp(empID) {
-    $http({
-      method: 'PUT',
-      url: '/emp/inactive/' + empID
-    }).then(function(response) {
-      getEmp();
-    });
-  }
+  // //active emp
+  // function activeEmp(empID) {
+  //   $http({
+  //     method: 'PUT',
+  //     url: '/employees/active/' + empID
+  //   }).then(function(response) {
+  //     getEmp();
+  //   });
+  // }
+  //
+  // //inactive emp
+  // function inactiveEmp(empID) {
+  //   $http({
+  //     method: 'PUT',
+  //     url: '/emp/inactive/' + empID
+  //   }).then(function(response) {
+  //     getEmp();
+  //   });
+  // }
 
   return {
-    allEmp: factoryEmp,
+    allEmp: empFactory,
     addEmp: addEmp,
-    deleteEmp: deleteEmp,
-    completeEmp: completeEmp,
-    inactiveEmp: inactiveEmp
+    deleteEmp: deleteEmp
+    // completeEmp: completeEmp,
+    // inactiveEmp: inactiveEmp
   };
 }]);
