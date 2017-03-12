@@ -1,6 +1,6 @@
 empApp.factory('EmpFactory', ['$http', function($http) {
 
-  var empFactory = { list: [] };
+  var EmpFactory = { list: [] };
 
   getEmp();
 
@@ -12,7 +12,7 @@ empApp.factory('EmpFactory', ['$http', function($http) {
     }).then(function(response) {
       console.log('response from factory: ', response);
       console.log('response.data from factory: ', response.data);
-      empFactory.list = response.data;
+      EmpFactory.list = response.data;
     });
   }
 
@@ -59,7 +59,7 @@ empApp.factory('EmpFactory', ['$http', function($http) {
   // }
 
   return {
-    allEmp: empFactory,
+    allEmp: EmpFactory,
     addEmp: addEmp,
     deleteEmp: deleteEmp
     // completeEmp: completeEmp,

@@ -1,4 +1,4 @@
-empApp.controller('EmpController', ['EmpFactory', function(EmpFactory){ 
+empApp.controller('EmpController', ['EmpFactory', function(EmpFactory){
   console.log('EmpController was loaded');
   var self = this;
   self.newEmp = {};
@@ -6,7 +6,7 @@ empApp.controller('EmpController', ['EmpFactory', function(EmpFactory){
 
 //add
   self.addEmp = function() {
-    empFactory.addEmp(self.newEmp);
+    EmpFactory.addEmp(self.newEmp);
       self.newEmp = {};
   }
 

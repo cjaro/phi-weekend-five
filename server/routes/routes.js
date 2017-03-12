@@ -18,8 +18,8 @@ router.get('/', function(req, res) {
     if(err){
       console.log(err);
       res.sendStatus(500);
-    }else{
-      client.query('SELECT * FROM employees ORDER BY status, id;', function(err, result) {
+    } else {
+      client.query('SELECT * FROM employees ORDER BY id;', function(err, result) {
         done();
         if(err){
           console.log(err);
@@ -35,7 +35,7 @@ router.get('/', function(req, res) {
 
 // add new employee in the db
 router.post('/', function(req, res) {
-  var taskObject = req.body;
+  var empsObject = req.body;
 // db query
   pool.connect(function(err, client, done) {
     if(err){
@@ -43,7 +43,7 @@ router.post('/', function(req, res) {
       res.sendStatus(500);
     }else{
       client.query('INSERT INTO employees (first_name, last_name, job_title, salary) VALUES ($1, $2, $3, $4);',
-        [taskObject.taskName], function(err, result) {
+        [empsObject.first_name, empsObject.last_name, empsObject.job_title, empsObject.salary], function(err, result) {
           done();
           if(err){
             console.log(err);
