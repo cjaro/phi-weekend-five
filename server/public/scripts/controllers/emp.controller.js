@@ -1,8 +1,8 @@
-empApp.controller('EmpController', ['EmpFactory', function(EmpFactory){ //can now take http out of depenc\since I moved it to the factory
+empApp.controller('EmpController', ['EmpFactory', function(EmpFactory){ 
   console.log('EmpController was loaded');
   var self = this;
   self.newEmp = {};
-  self.empList = EmpFactory.allEmps;
+  self.empList = EmpFactory.allEmp;
 
 //add
   self.addEmp = function() {

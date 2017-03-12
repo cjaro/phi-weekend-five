@@ -1,4 +1,4 @@
-empApp.factory('EmpFactory', [function() {
+empApp.factory('EmpFactory', ['$http', function($http) {
 
   var empFactory = { list: [] };
 
