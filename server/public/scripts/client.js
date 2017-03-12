@@ -1,19 +1,16 @@
-var myApp = angular.module('myApp', ['ngRoute']);
+var empApp = angular.module('empApp', ['ngRoute']);
 
 myApp.config(['$routeProvider', function($routeProvider) {
-
     $routeProvider
-        .when('/home', {
-            templateUrl: '/views/templates/home.html',
-            controller: 'HomeController',
-            controllerAs: 'hc'
-        })
-        .when('/other', {
-            templateUrl: '/views/templates/other.html',
+        .when('/emp', {
+            templateUrl: '/views/emp.html',
+            controller: 'EmpController',
+            controllerAs: 'ec'
+        }).when('/other', {
+            templateUrl: '/views/other.html',
             controller: 'OtherController',
             controllerAs: 'oc'
-        })
-        .otherwise({
+        }).otherwise({
             redirectTo: 'home'
         });
 }]);

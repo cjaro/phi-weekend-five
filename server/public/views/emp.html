@@ -1,0 +1,29 @@
+<div class="container">
+
+    <label>New Employee</label>
+    <input ng-model="tc.newEmp.empName">
+    <button class="btn btn-info" ng-click="ec.addEmp()">Add Employee</button>
+
+    <div class="table-responsive">
+
+      <table class="table table-bordered">
+
+        <thead>
+          <th class="active">Employee</th>
+          <th class="active">Active</th>
+          <th class="active">Inactive</th>
+        </thead>
+
+        <tbody>
+          <tr ng-repeat="emp in ec.taskList.list" ng-class="{complete: emp.status, active: !emp.status}">
+            <td class="active">{{emp.name}}</td>
+            <td class="active"><button class="btn btn-success" ng-click="ec.activeEmp(emp.id)" ng-hide="emp.status">Active</button></td>
+            <td class="complete"><button class="btn btn-danger" ng-click="ec.deleteEmp(emp.id)">Inactive</button></td>
+          </tr>
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
