@@ -15,4 +15,5 @@ empApp.config(['$routeProvider', function($routeProvider) {
   .otherwise({
     redirectTo: 'emp'
   });
+
 }]);

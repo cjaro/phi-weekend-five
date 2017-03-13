@@ -1,10 +1,10 @@
 <div class="container">
 
-    <label>New Employee</label>
-    <input ng-model="ec.newEmp.first_name">
-    <input ng-model="ec.newEmp.last_name">
-    <input ng-model="ec.newEmp.job_title">
-    <input ng-model="ec.newEmp.salary">
+    <h3>Add New Employee Here: </h3>
+    <input ng-model="ec.newEmp.first_name" placeholder="First Name">
+    <input ng-model="ec.newEmp.last_name" placeholder="Last Name">
+    <input ng-model="ec.newEmp.job_title" placeholder="Job Title">
+    <input ng-model="ec.newEmp.salary" placeholder="Salary">
     <button class="btn btn-info" ng-click="ec.addEmp()">Add Employee</button>
 
     <div class="table-responsive">
@@ -16,21 +16,23 @@
           <th class="active">Last Name</th>
           <th class="active">Job Title</th>
           <th class="active">Salary</th>
+          <th class="active">Delete</th>
         </thead>
 
         <tbody>
           <tr ng-repeat="emp in ec.empList.list">
-            <td>{{emp.first_name}}</td>
-            <td>{{emp.last_name}}</td>
-            <td>{{emp.job_title}}</td>
-            <td>{{emp.salary}}</td>
-            <td class="delete"><button class="btn btn-danger" ng-click="ec.deleteEmp(emp.id)">Delete</button></td>
+            <td class="active">{{emp.first_name}}</td>
+            <td class="active">{{emp.last_name}}</td>
+            <td class="active">{{emp.job_title}}</td>
+            <td class="active">{{emp.salary}}</td>
+            <td class="active"><button class="btn btn-danger" ng-click="ec.deleteEmp(emp.id)">Delete</button></td>
             <!-- <td class="active"><button class="btn btn-success" ng-click="ec.activeEmp(emp.id)" ng-hide="emp.status">Active</button></td> -->
             <!-- <td class="inactive"><button class="btn btn-success" ng-click="ec.inactiveEmp(emp.id)" ng-hide="emp.status">Inactive</button></td> -->
           </tr>
         </tbody>
 
       </table>
+
 
     </div>
 

@@ -1,10 +1,64 @@
-background {
-    background-image: url("Back-to-the-Future-Doc-Brown.jpg");
-    background-repeat: repeat;
+body {
+  background-image: url(http://images.mentalfloss.com/sites/default/files/styles/article_640x430/public/marty-doc_12.jpg);
+  background-repeat: repeat;
 }
 
-h1 {
+h2 {
+  background: aqua;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  font-size: 48px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+h3 {
+  background: aqua;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  font-size: 48px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+p {
+  background: aqua;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   font-size: 36px;
-  font-family: monospace;
-  color: orangered;
+  text-align: center;
+}
+
+.table th {
+  color: black;
+  font-size: 18px;
+}
+
+.navbar-nav  {
+  font-size: 16px;
+}
+
+ul {
+  font-size: 16px;
+}
+
+label {
+  background: aquamarine;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 25px;
+}
+
+input {
+  background: aquamarine;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 25px;
+}
+
+tr {
+  background: white;
+  margin: 10px;
+  padding: 10px;
+
 }
