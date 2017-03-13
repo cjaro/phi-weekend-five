@@ -4,6 +4,7 @@ empApp.controller('EmpController', ['EmpFactory', function(EmpFactory){
   self.newEmp = {};
   self.empList = EmpFactory.allEmp;
 
+
 //add
   self.addEmp = function() {
     EmpFactory.addEmp(self.newEmp);
@@ -15,15 +16,16 @@ empApp.controller('EmpController', ['EmpFactory', function(EmpFactory){
     EmpFactory.deleteEmp(empID);
   }
 
-// // "the glue between the controller and view"
-//   self.completeEmp = function(empID) {
-//     EmpFactory.completeEmp(empID);
-//   }
-//
-// // uncomplete
-//   self.uncompleteEmp = function(empID) {
-//     EmpFactory.uncompleteEmp(empID);
-//   }
+// "the glue between the controller and view"
+  self.activeEmp = function(empID) {
+    EmpFactory.activeEmp(empID);
+  }
+
+// uncomplete
+  self.inactiveEmp = function(empID) {
+    EmpFactory.inactiveEmp(empID);
+  }
+
 
 
 }]);

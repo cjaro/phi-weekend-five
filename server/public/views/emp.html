@@ -17,6 +17,8 @@
           <th class="active">Job Title</th>
           <th class="active">Salary</th>
           <th class="active">Delete</th>
+          <th class="active">Active</th>
+          <th class="active">Inactive</th>
         </thead>
 
         <tbody>
@@ -26,8 +28,8 @@
             <td class="active">{{emp.job_title}}</td>
             <td class="active">{{emp.salary}}</td>
             <td class="active"><button class="btn btn-danger" ng-click="ec.deleteEmp(emp.id)">Delete</button></td>
-            <!-- <td class="active"><button class="btn btn-success" ng-click="ec.activeEmp(emp.id)" ng-hide="emp.status">Active</button></td> -->
-            <!-- <td class="inactive"><button class="btn btn-success" ng-click="ec.inactiveEmp(emp.id)" ng-hide="emp.status">Inactive</button></td> -->
+            <td class="active"><button class="btn btn-success" ng-click="ec.activeEmp(emp.id)" >Active</button></td>
+            <td class="active"><button class="btn btn-success" ng-click="ec.inactiveEmp(emp.id)">Inactive</button></td>
           </tr>
         </tbody>
 
@@ -37,3 +39,5 @@
     </div>
 
   </div>
+
+<!-- ng-hide="emp.status" -->

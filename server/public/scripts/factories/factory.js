@@ -38,31 +38,31 @@ empApp.factory('EmpFactory', ['$http', function($http) {
     });
   }
 
-  // //active emp
-  // function activeEmp(empID) {
-  //   $http({
-  //     method: 'PUT',
-  //     url: '/employees/active/' + empID
-  //   }).then(function(response) {
-  //     getEmp();
-  //   });
-  // }
-  //
-  // //inactive emp
-  // function inactiveEmp(empID) {
-  //   $http({
-  //     method: 'PUT',
-  //     url: '/emp/inactive/' + empID
-  //   }).then(function(response) {
-  //     getEmp();
-  //   });
-  // }
+  //active emp
+  function activeEmp(empID) {
+    $http({
+      method: 'PUT',
+      url: '/employees/active/' + empID
+    }).then(function(response) {
+      getEmp();
+    });
+  }
+
+  //inactive emp
+  function inactiveEmp(empID) {
+    $http({
+      method: 'PUT',
+      url: '/emp/inactive/' + empID
+    }).then(function(response) {
+      getEmp();
+    });
+  }
 
   return {
     allEmp: EmpFactory,
     addEmp: addEmp,
-    deleteEmp: deleteEmp
-    // completeEmp: completeEmp,
-    // inactiveEmp: inactiveEmp
+    deleteEmp: deleteEmp,
+    activeEmp: activeEmp,
+    inactiveEmp: inactiveEmp
   };
 }]);

@@ -12,3 +12,8 @@ INSERT INTO employees (first_name, last_name, job_title, salary) VALUES ('Bill',
 DELETE FROM employees WHERE id=1;
 
 SELECT * FROM employees ORDER BY id;
+
+SELECT SUM(salary) FROM employees;
+
+ALTER TABLE employees
+ADD status boolean DEFAULT TRUE;
